@@ -1,4 +1,4 @@
-# TCGA_PanCancer_Genotyping
+# TCGA_PanCancer_Genotyping_Imputation
 
 Last updated: 03/23/2022
 
