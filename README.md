@@ -29,8 +29,8 @@ Please additionally cite: Carrot-Zhang et al., Cancer Cell 2020 when referencing
 
 ## Senior Authors
 * Elad Ziv, Ph.D., University of California, San Francisco
-* Andrew D. Cherniack, Ph.D., The Broad Institute of Harvard and MIT/Dana-Farber Cancer Institute/Harvard Medical School
 * Rameen Beroukhim, Ph.D., The Broad Institute of Harvard and MIT/Dana-Farber Cancer Institute/Harvard Medical School/Brigham and Women’s Hospital
+* Andrew D. Cherniack, Ph.D., The Broad Institute of Harvard and MIT/Dana-Farber Cancer Institute/Harvard Medical School
 
 
 ## Contents
