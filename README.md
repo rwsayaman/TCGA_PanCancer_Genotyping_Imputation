@@ -1,9 +1,9 @@
 # TCGA_PanCancer_Genotyping
 
-Last updated: 03/20/2022
+Last updated: 03/23/2022
 
 ## Description
-We present a workflow for pre-processing and imputation of the  9000 patients enrolled in the TCGA. The protocol is developed around the structure of TCGA, but it can be adapted to explore other genotyping array data sets.
+We present a protocol for quality control and assessment of the TCGA Affymetrix Genome-Wide Human SNP Array 6.0 data to generate a high-quality imputed genotyping dataset comprised of ~11M SNPs for more than 9000 patients in the TCGA cohort. The protocol is developed around the structure of TCGA, but it can be adapted to explore other genotyping array data sets.
 
 The code and data deposited here were used to generate the results and resource files for the Sayaman, Saad et al., Immunity 2021 and Carrot-Zhang et al., Cancer Cell 2020 papers.
 
