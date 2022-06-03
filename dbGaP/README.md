@@ -22,7 +22,7 @@ Please additionally cite: Carrot-Zhang et al., Cancer Cell 2020 when referencing
 ## Contents
 **Apply for dbGaP Authorization**
 
-Critical: dbGAP authorization is necessary to download controlled-access TCGA germline data. While the application process is relatively straightforward, the review process can take some time. We recommend applying for as soon as is feasible.
+**Critical:** dbGAP authorization is necessary to download controlled-access TCGA germline data. While the application process is relatively straightforward, the review process can take some time. We recommend applying for as soon as is feasible.
 
  
 ## Workflow
