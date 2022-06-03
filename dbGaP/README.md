@@ -31,3 +31,15 @@ Critical: dbGAP authorization is necessary to download controlled-access TCGA ge
 1.	Verify that you institution has an account. If not, apply for an institutional dbGap account with the relevant institutional officers.  
 2.	Apply for dbGaP authorization to access TCGA controlled-access data. See instructions here: https://dbgap.ncbi.nlm.nih.gov/aa/wga.cgi?page=login
 3.	Prepare a data access request: https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/GetPdf.cgi?document_name=GeneralAAInstructions.pdf
+
+
+## Troubleshooting
+
+**Problem:** 
+
+Issues accessing controlled-access data from the GDC Portal or the GDC publication page associated with (Carrot-Zhang et al., 2020). (Step 6 of before you begin)
+
+**Potential solution** 
+All TCGA germline data are controlled access. Ensure that you have followed all steps required by the GDC to obtain controlled-access data including authentication through eRA Commons and dbGaP authorization. Step by step instructions for obtaining access are outlined in the ‘Before You Begin’ section above and further details can be found here: https://gdc.cancer.gov/access-data/obtaining-access-controlled-data.
+
+
