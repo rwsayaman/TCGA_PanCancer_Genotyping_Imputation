@@ -28,6 +28,6 @@ This protocol was developed in PLINK 1.9 beta: (https://www.cog-genomics.org/pli
 ## Workflow
 **Timing: 1h**
 
-1.	Install PLINK software (version. 1.9 or current version) (Chang et al., 2015; Purcell et al., 2007) (http://www.cog-genomics.org/plink).
+1.	Install PLINK software (version. 1.9 or current version) on the high-performance compute environment (Chang et al., 2015; Purcell et al., 2007) (http://www.cog-genomics.org/plink).
 
-2.  Install R programming software (https://www.r-project.org/)
+2. Install R programming software (https://www.r-project.org/)
