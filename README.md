@@ -39,20 +39,24 @@ Please additionally cite: Carrot-Zhang et al., Cancer Cell 2020 when referencing
 
 The protocol describes specific steps using TCGA datasets However, this can be applied in other datasets with similar structure.
 
-* **System Requirements**
+* [**System Requirements**](https://github.com/rwsayaman/TCGA_PanCancer_Genotyping_Imputation/tree/main/SystemRequirements)
 
-* **Apply for dbGaP Authorization**
+* [**Apply for dbGaP Authorization**](https://github.com/rwsayaman/TCGA_PanCancer_Genotyping_Imputation/tree/main/dbGaP)
 
-* **Software Installation**
+* **Prepare Datasets**
+  * [Prepare Cohort Ancestry Calls](https://github.com/rwsayaman/TCGA_PanCancer_Genotyping_Imputation/tree/main/CohortAncestryCalls)
+  * [Prepare Germline Genetic Variation Dataset](https://github.com/rwsayaman/TCGA_PanCancer_Genotyping_Imputation/tree/main/DownloadGenotypingData)
+
+* [**Software Installation**](https://github.com/rwsayaman/TCGA_PanCancer_Genotyping_Imputation/tree/main/SoftwareInstallation)
   * PLINK
   * R/Bioconductor
 
 ### Analysis
 
 * **Code**
-  * Quality Control Analysis of Germline Data
-  * Stranding
-  * Genotype Imputation
+  * [Quality Control Analysis of Germline Data](https://github.com/rwsayaman/TCGA_PanCancer_Genotyping_Imputation/tree/main/QualityControlAnalysis)
+  * [Stranding](https://github.com/rwsayaman/TCGA_PanCancer_Genotyping_Imputation/tree/main/Stranding)
+  * [Genotype Imputation](https://github.com/rwsayaman/TCGA_PanCancer_Genotyping_Imputation/tree/main/GenotypeImputation)
 
   
 ## Resources
