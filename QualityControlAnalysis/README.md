@@ -84,7 +84,7 @@ https://www.cog-genomics.org/plink2/input
 	* https://www.cog-genomics.org/plink2/formats#bim
 	* https://www.cog-genomics.org/plink2/formats#fam
 
-5.	 Impute the genotyping sex associated with each sample by calculating the X chromosome homozygosity estimate (XHE):
+5.	Impute the genotyping sex associated with each sample by calculating the X chromosome homozygosity estimate (XHE):
 https://www.cog-genomics.org/plink/1.9/basic_stats#check_sex.
 
 	a.	Split off the X chromosome's pseudo-autosomal region (--split-x) which is treated by PLINK as a separated XY chromosome. Indicate the proper build code.
