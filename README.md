@@ -60,7 +60,7 @@ The protocol describes specific steps using TCGA datasets However, this can be a
 
   
 ## Resources
-1. TCGA QC and HRC Imputed Genotyping Data  
+**TCGA QC and HRC Imputed Genotyping Data**  
    * Access to the TCGA original birdseed (GDC Data Portal: https://portal.gdc.cancer.gov/) and pre-processed quality controlled genotyping data imputed to HRC generated in Sayaman et al., Immunity 2021 requires GDC controlled access permission approval.
    * The quality controlled and HRC imputed genotyping data and the UCSF ancestry assignments were contributed towards ancestry analyses (Carrot-Zhang et al., 2020) and are accessible at the GDC publication page (https://gdc.cancer.gov/about-data/publications/CCG-AIM-2020).
    
