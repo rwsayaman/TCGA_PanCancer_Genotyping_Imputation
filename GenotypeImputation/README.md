@@ -54,7 +54,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 
 3.	Filter to exclude SNPs with imputation R2 < 0.5, see Figure 2b. The imputation R2 is the estimated value of the squared correlation between imputed genotypes and true, unobserved genotypes.
 
-	a.	Filter chr*.dose.vcf.gz files for R     2 ≥ 0.5 and index. Generate filtered chr*.rsq0.5.dose.vcf.gz and chr*.rsq0.5.dose.vcf.gz.tbi files
+	a.	Filter chr*.dose.vcf.gz files for R2 ≥ 0.5 and index. Generate filtered chr*.rsq0.5.dose.vcf.gz and chr*.rsq0.5.dose.vcf.gz.tbi files
 	
 	b.	Generate new filtered chr*.info.rsq0.5.gz files 
 
@@ -64,7 +64,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 
 	b.	Filter out SNPs (--maf) with MAF < 0.005 in PLINK
 
-**Note:** If you plan to analyze only a subset of the samples, recalculate the MAF (PLINK --freq) for the population of interest.
+**Note:** If you plan to analyze only a subset of the samples, recalculate the MAF (PLINK --freq) for the population of interest. Filter SNPs based on the recalculated frequency.
 
 
 ## Expected outcomes
