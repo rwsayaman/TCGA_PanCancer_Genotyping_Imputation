@@ -30,15 +30,15 @@ This section describes the stranding of the QC’ed genotyping data to the Haplo
 ## Workflow
 **Timing: Approximately <1 day. Dependent on server capabilities.**
 
-1.	Prior to stranding, identify and remove all palindromic SNPs (A/T or G/C).
+12.	Prior to stranding, identify and remove all palindromic SNPs (A/T or G/C).
 
-2.	Perform stranding to the Haplotype Reference Consortium using the McCarthy Group tools. (https://www.well.ox.ac.uk/~wrayner/tools/; see section “HRC or 1000G Imputation preparation and checking”)
+13.	Perform stranding to the Haplotype Reference Consortium using the McCarthy Group tools. (https://www.well.ox.ac.uk/~wrayner/tools/; see section “HRC or 1000G Imputation preparation and checking”)
 
 	a.	Download and unzip the tab delimited HRC reference file (currently v1.1 HRC.r1-1.GRCh37.wgs.mac5.sites.tab) from the Haplotype Reference Consortium (http://www.haplotype-reference-consortium.org/site)
 
 	b.	Perform stranding of the quality-controlled genotyping file against the HRC reference panel using the high performance cluster version of the script (HRC-1000G-check-bim-v4.2.13-NoReadKey.zip), which compares genotyping alleles to the corresponding SNP alleles from HRC
 	
-	c.	Provide the .bim file, the calculated allele frequencies (--freq) and the reference panel as input	s (See “Usage with HRC reference panel”)
+	c.	Provide the .bim file, the calculated allele frequencies (--freq) and the reference panel as inputs (See “Usage with HRC reference panel”)
 
 **Note:** The McCarthy Group tools (https://www.well.ox.ac.uk/~wrayner/tools/) stranding script removes SNPs with differing alleles, SNPs with > 0.2 allele frequency difference, and SNPs not in the reference panel. The McCarthy Group stranding script would also remove A/T & G/C palindromic SNPs with MAF > 0.4, however we chose to remove all palindromic SNPs in the preceding step to remove ambiguity.
 
