@@ -30,41 +30,53 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 ## Workflow
 **Timing: Approximately 1 week. Dependent on imputation server availability.**
 
-1.	Perform phasing and imputation using the Haplotype Reference Consortium (HRC) (Loh et al., 2016b; McCarthy et al., 2016)). 
-
-	a.	To reduce the run time, divide the VCF file into 22 files corresponding to individual autosomal chromosomes. 
-
-	b.	Conduct phasing and imputation using a standard pipeline on the Michigan Imputation Server (MIS). 
-
-	c.	Perform phasing using Eagle (version v2.3 or current version) on the variant call file (VCF) (Loh et al., 2016a). By default, Eagle restricts analysis to bi-allelic variants that exist in both the target and reference data. 
+1. 	Perform phasing and imputation using the Haplotype Reference Consortium (HRC) (Loh et al., 2016b; McCarthy et al., 2016)). 
+  
+  	a. 	To reduce the run time, divide the VCF file into 22 files corresponding to individual autosomal chromosomes. 
+  	
+  	b. 	Conduct phasing and imputation using a standard pipeline on the Michigan Imputation Server (MIS). 
+  	
+	c. 	Perform phasing using Eagle (version v2.3 or current version) on the variant call file (VCF) (Loh et al., 2016a). By default, Eagle restricts analysis to bi-allelic variants that exist in both the target and reference data. 
 
 	d.	Run Minimac3 (Das et al., 2016) for imputation. For each of the 22 VCF files, the MIS breaks the dataset into non-overlapping chunks prior to imputation. For HRC imputation, select the HRC reference panel (version r1.1.2016) using mixed population for QC.
 	
 2.	Download the HRC imputed germline files for each chromosome (“chr*.zip) from the MIS.
 
 	a.	Unzip each file using the provided password 
-
-	b.	Each unzipped folder contains 3 files:  
-
-	i.	.dose.vcf.gz - imputed genotypes with dosage information
-
-	ii.	.dose.vcf.gz.tbi - index file of the .vcf.gz file
 	
-	iii.	 .info.gz file - information for each variant including quality and frequency (For Minimac3 info file, see: https://genome.sph.umich.edu/wiki/Minimac3_Info_File)
+	* **Run code:** "qsub_unzip_HRC_chr.txt" (see READ_ME_4.txt)
 
-3.	Filter to exclude SNPs with imputation R2 < 0.5, see Figure 2b. The imputation R2 is the estimated value of the squared correlation between imputed genotypes and true, unobserved genotypes.
-
-	a.	Filter chr*.dose.vcf.gz files for R2 ≥ 0.5 and index. Generate filtered chr*.rsq0.5.dose.vcf.gz and chr*.rsq0.5.dose.vcf.gz.tbi files
+	b.	Each unzipped folder contains 3 files: 
 	
-	b.	Generate new filtered chr*.info.rsq0.5.gz files 
+	* i.	.dose.vcf.gz - imputed genotypes with dosage information
+	
+	* ii.	.dose.vcf.gz.tbi - index file of the .vcf.gz file
+	
+	* iii.	 .info.gz file - information for each variant including quality and frequency (For Minimac3 info file, see: https://genome.sph.umich.edu/wiki/Minimac3_Info_File)
+
+3.	Filter to exclude SNPs with imputation R2 < 0.5 using bcftools (see Chambwe, Sayaman et al., Figure 2b). The imputation R2 is the estimated value of the squared correlation between imputed genotypes and true, unobserved genotypes.
+
+	a.	Filter "chr*.dose.vcf.gz" files for R2 ≥ 0.5 and index. Generate filtered "chr*.rsq0.5.dose.vcf.gz" and "chr*.rsq0.5.dose.vcf.gz.tbi" files
+	
+	* **Run code:** "qsub_filter_vcf_R2.txt"
+	
+	b.	Generate new filtered "chr*.info.rsq0.5.gz" files
+	
+	* **Run code:** "qsub_make_py_format_info.txt" which requires the "Format_Impute_HRC_Info_chr1.py" template file 
+	
+	* **Run code:** "qsub_py_format_info.txt" which runs "Format_Impute_HRC_Info_chr*.py" files
 
 4.	Filter to exclude SNPs with MAF < 0.005, see Figure 2b.
 
-	a.	Convert VCF chr*.rsq0.5.dose.vcf.gz files to PLINK tcga_imputed_hrc1.1_rsq0.5_chr*.bed files
+	a.	Convert VCF "chr*.rsq0.5.dose.vcf.gz" files to PLINK "tcga_imputed_hrc1.1_rsq0.5_chr*.bed" files
+	
+	* **Run code:** "qsub_convert_vcf_plink.txt"
 
 	b.	Filter out SNPs (--maf) with MAF < 0.005 in PLINK
 
-**Note:** If you plan to analyze only a subset of the samples, recalculate the MAF (PLINK --freq) for the population of interest. Filter SNPs based on the recalculated frequency.
+	* **Run code:** "qsub_plink_filter_maf.txt"
+
+**Note:** If you plan to analyze only a subset of the samples, recalculate the MAF in PLINK (--freq) for the population of interest. Filter SNPs based on the recalculated frequency. Filter SNPs based on the recalculated frequency.
 
 
 ## Expected outcomes
