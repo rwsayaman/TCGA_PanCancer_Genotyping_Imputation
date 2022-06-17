@@ -43,9 +43,7 @@ This section describes the stranding of the QC’ed genotyping data to the Haplo
 	c.	Provide the .bim file, the calculated allele frequencies (--freq) and the reference panel as inputs (See “Usage with HRC reference panel”)
 	
 	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto_hardy.nonriskSNP_maf_uniqueSNP_rmPalindromic_freq.txt"
-
 	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto_hardy.nonriskSNP_maf_uniqueSNP_rmPalindromic_HRCstrandcheck.txt"
-
 	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto_hardy.nonriskSNP_maf_uniqueSNP_rmPalindromic_HRCstrand.txt"
 
 **Note:** The McCarthy Group tools (https://www.well.ox.ac.uk/~wrayner/tools/) stranding script removes SNPs with differing alleles, SNPs with > 0.2 allele frequency difference, and SNPs not in the reference panel. The McCarthy Group stranding script would also remove A/T & G/C palindromic SNPs with MAF > 0.4, however we chose to remove all palindromic SNPs in the preceding step to remove ambiguity.
