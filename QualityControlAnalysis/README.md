@@ -89,6 +89,8 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#check_sex.
 	
 	c.	Run check sex (--check-sex) which compares reported sex assignments with those imputed from X chromosome F coefficients.
 	
+	* **Run code:** "qsub_plink_whitelist_splitx_indep.pp_checksex_imputesex.txt"
+	
 	d.	Plot a histogram of the XHE F coefficients (F coeff). See Figure 1a from (Chambwe, Sayaman et al., 2022).
 	
 	* i.	A very tight distribution of F coeff around 1 is expected for males, and a more spread distribution of F coeff centered around zero is expected for females. 
@@ -96,7 +98,9 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#check_sex.
 	
 	e.	Impute sex (--impute-sex) based on the XHE F coefficient.
 	
-	f.	Curate imputed sex assignments as needed.
+	f.	Curate imputed sex assignments as needed and update sex assignments (--update-sex).
+	
+	* **Run code:** "qsub_plink_whitelist_splitx_updatesex.txt"
 
 **Note:**  To minimize loss of TCGA samples when no self-reported sex is available and sex information is needed as a covariate in the analysis, sex can be imputed based on the XHE (F or inbreeding coefficient). 
 
@@ -110,25 +114,24 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#check_sex.
 	
 	* **Run code:** "qsub_plink_whitelist_geno_mind.txt"
 
-7.	Calculate heterozygosity within each ancestry cluster, and filter samples with excess heterozygosity.
-https://www.cog-genomics.org/plink/1.9/basic_stats#ibc
- 
+7.	Calculate heterozygosity within each ancestry cluster, and filter samples with excess heterozygosity. https://www.cog-genomics.org/plink/1.9/basic_stats#ibc
+
 	a.	Calculate heterozygosity (--het) vs. missingness (--missing) rates. 
 	
 	* **Run code:** "qsub_plink_whitelist_imiss_het.txt"
 
 	b.	Using downloaded ancestry assignments, calculate heterozygosity means and standard deviations within each of the European (EUR), African (AFR),  East Asian (EAS) and Admixed American (AMR) ancestry clusters.
-
-	c.	Plot the log10 proportion of missing genotypes against heterozygosity rates with mean +/-3*SD for each ancestry cluster for QC. See Figure 1b. 
 	
-	d.	Flag samples with heterozygosity >3*SD above the mean for each ancestry cluster; remove individuals as part of 8b sample filtering. 
- 
+	c.	Plot the log10 proportion of missing genotypes against heterozygosity rates with mean +/-3xSD for each ancestry cluster for QC. See Figure 1b from (Chambwe, Sayaman et al., 2022).
+	
+	d.	Flag samples with heterozygosity >3xSD above the mean for each ancestry cluster; remove individuals as part of 8b sample filtering. 
+
 **Note:** Samples with low heterozygosity are expected for certain ancestry groups and are not removed.
 
 **Note:** Not all TCGA samples have self-reported race and ethnicity data. Initial ancestry cluster assignments can be calculated based on Principal Component Analysis (PCA) of germline data (--pca). In (Sayaman et al., 2021) initial ancestry calls were made based on Partition Around Medoids (PAM) clustering with k=4 using the first 3 principal components as described in (Sayaman et al., 2021), (Carrot-Zhang et al., 2020).
- 
- 	* **Run code:** "qsub_plink_whitelist_geno_mind_pca.txt"
 
+* **Run code:** "qsub_plink_whitelist_geno_mind_pca.txt"
+	
  8.	Select a representative sample for each individual with more than one sample. Conduct final filtering steps for all autosomal SNPs across the set of unique individuals.
 	
 	a.	Restrict to autosomal chromosomes by excluding all unplaced and non-autosomal (--autosome).
