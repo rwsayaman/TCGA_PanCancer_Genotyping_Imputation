@@ -40,9 +40,9 @@ Review other resources for suitable QC steps based on the study design (Anderson
 
 	a.	Cross-reference sample set with whitelisted germline samples from GDC PanCanAtlas Publications page (https://gdc.cancer.gov/about-data/publications/pancanatlas). Non-whitelisted samples have since been flagged for withdrawal in the various TCGA projects.
 
-	i.	Download the Merged Sample Quality Annotations file (merged_sample_quality_annotations.tsv).
+	* i.	Download the Merged Sample Quality Annotations file (merged_sample_quality_annotations.tsv).
 
-	ii.	To select whitelisted samples, filter for samples with “platform” column set to  “Genome_Wide_SNP_6” and the “Do not use”’ column set to “FALSE”.
+	* ii.	To select whitelisted samples, filter for samples with “platform” column set to  “Genome_Wide_SNP_6” and the “Do not use”’ column set to “FALSE”.
 
 	b.	Based on established TCGA barcode identifiers, ensure all whitelisted samples have Analyte code “D” (DNA). Exclude samples with other Analyte codes.
 
@@ -55,11 +55,11 @@ Review other resources for suitable QC steps based on the study design (Anderson
 	b.	Read each birdseed text file as a tab delimited table with 906,600 SNPs as rows and three columns containing the following information:   (See page 1, 
 http://tools.thermofisher.com/content/sfs/brochures/genome_wide_snp6_sample_dataset_readme.pdf).
 
-	i.	Composite Element REF: the probeset ID
+	* i.	Composite Element REF: the probeset ID
 
-	ii.	Call: the genotype call with values of {-1, 0, 1, 2} corresponding to {NoCall, AA, AB, BB}
+	* ii.	Call: the genotype call with values of {-1, 0, 1, 2} corresponding to {NoCall, AA, AB, BB}
 
-	iii.	Confidence: the call confidence with values ranging from [0,1] with lower values corresponding to greater confidence
+	* iii.	Confidence: the call confidence with values ranging from [0,1] with lower values corresponding to greater confidence
 
 	c.	Pre-filter to exclude SNPs with lower call confidence and set the “Call” value to NA for SNPs with “Confidence” > 0.1 prior to concatenation.
 
@@ -69,10 +69,10 @@ http://tools.thermofisher.com/content/sfs/brochures/genome_wide_snp6_sample_data
 
 	e.	Using a custom script, convert batch concatenated birdseed files into PLINK standard input transposed text format files.
 
-	i.	Using the Affymetrix SNP Array 6.0 (release 35) annotation file, convert concatenated data into PLINK transposed text genotype tables (.tped) with allele calls (See .tped file format specification:
+	* i.	Using the Affymetrix SNP Array 6.0 (release 35) annotation file, convert concatenated data into PLINK transposed text genotype tables (.tped) with allele calls (See .tped file format specification:
 https://www.cog-genomics.org/plink2/formats#tped).
 	
-	ii.	Create corresponding PLINK sample information files (.tfam) (See .tfam file format specification:
+	* ii.	Create corresponding PLINK sample information files (.tfam) (See .tfam file format specification:
  https://www.cog-genomics.org/plink2/formats#tfam).
 
 4.	Import whitelisted germline data into PLINK for QC. Convert PLINK standard input transposed text files (--tfile) to standard input binary files (--bfile).
@@ -95,9 +95,9 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#check_sex.
 	
 	d.	Plot a histogram of the XHE F coefficients (F coeff). See Figure 1a.
 	
-	i.	A very tight distribution of F coeff around 1 is expected for males, and a more spread distribution of F coeff centered around zero is expected for females. 
+	* i.	A very tight distribution of F coeff around 1 is expected for males, and a more spread distribution of F coeff centered around zero is expected for females. 
 	
-	ii.	In PLINK, F estimates < 0.2 are by default assigned female and F estimates > 0.8 assigned male. However, when (i) is observed and there is a clear gap between the two distributions, F coeff thresholds can be loosened and adjusted to correspond to the empirical gap. See --check-sex implementation and notes on TCGA sex assignment below.
+	* ii.	In PLINK, F estimates < 0.2 are by default assigned female and F estimates > 0.8 assigned male. However, when (i) is observed and there is a clear gap between the two distributions, F coeff thresholds can be loosened and adjusted to correspond to the empirical gap. See --check-sex implementation and notes on TCGA sex assignment below.
 	
 	e.	Impute sex (--impute-sex) based on the XHE F coefficient.
 	
