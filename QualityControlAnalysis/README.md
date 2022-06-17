@@ -110,24 +110,28 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#check_sex.
 
 7.	Calculate heterozygosity within each ancestry cluster, and filter samples with excess heterozygosity.
 https://www.cog-genomics.org/plink/1.9/basic_stats#ibc
+ 
+	a.	Calculate heterozygosity (--het) vs. missingness (--missing) rates. 
+	
+	* **Run code:** "qsub_plink_whitelist_imiss_het.txt"
 
-	a.	Using downloaded ancestry assignments, calculate heterozygosity (--het) by filtering for samples (--keep) within each of the European (EUR), African (AFR),  East Asian (EAS) and Admixed American (AMR) ancestry clusters.
+	b.	Using downloaded ancestry assignments, calculate heterozygosity means and standard deviations within each of the European (EUR), African (AFR),  East Asian (EAS) and Admixed American (AMR) ancestry clusters.
 
-	b.	Calculate heterozygosity means and standard deviations in each ancestry cluster.
-
-	c.	Plot the log10 proportion of missing genotypes against heterozygosity rates with mean +/-3*SD for each ancestry cluster for QC. See Figure 1b from (Chambwe, Sayaman et al., 2022).
-
-	d.	Remove samples (--remove) with heterozygosity >3*SD above the mean for each ancestry cluster. 
-
-**Note:** Not all TCGA samples have self-reported race and ethnicity data. Ancestry can be calculated based on Principal Component Analysis (PCA) of germline data (--pca). In (Sayaman et al., 2021) initial ancestry calls were made based on Partition Around Medoids (PAM) clustering with k=4 using the first 3 principal components as described in  ((Sayaman et al., 2021), (Carrot-Zhang et al., 2020) 2020).
-
+	c.	Plot the log10 proportion of missing genotypes against heterozygosity rates with mean +/-3*SD for each ancestry cluster for QC. See Figure 1b. 
+	
+	d.	Flag samples with heterozygosity >3*SD above the mean for each ancestry cluster; remove individuals as part of 8b sample filtering. 
+ 
 **Note:** Samples with low heterozygosity are expected for certain ancestry groups and are not removed.
 
-8.	Select a representative sample for each individual with replicate samples. Conduct final filtering steps for all autosomal SNPs across the set of unique individuals.
+**Note:** Not all TCGA samples have self-reported race and ethnicity data. Initial ancestry cluster assignments can be calculated based on Principal Component Analysis (PCA) of germline data (--pca). In (Sayaman et al., 2021) initial ancestry calls were made based on Partition Around Medoids (PAM) clustering with k=4 using the first 3 principal components as described in (Sayaman et al., 2021), (Carrot-Zhang et al., 2020).
+ 
+ 	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto.txt"
 
+ 8.	Select a representative sample for each individual with more than one sample. Conduct final filtering steps for all autosomal SNPs across the set of unique individuals.
+	
 	a.	Restrict to autosomal chromosomes by excluding all unplaced and non-autosomal (--autosome).
 
-	b.	Preferentially select blood-derived normal samples; for those with more than one blood-derived sample, retain the samples with higher call rates (--keep).
+	b.	Create a final list of samples to include in the study (--keep). Exclude samples flagged in 7d for excess heterozygosity. For individuals with more than one sample, preferentially select blood-derived normal samples; for those with more than one blood-derived sample, retain the samples with higher call rates.
 	
 	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto.txt"
 
