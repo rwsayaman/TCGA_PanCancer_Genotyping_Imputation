@@ -13,4 +13,8 @@
 cd  /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Data/HRC_Imputed_Genotyping_Data
 
 module load CBC plink/1.90b5.
-plink --bfile  tcga_imputed_hrc1.1_rsq0.5_chr$PBS_ARRAYID --maf 0.005 --make-bed --out tcga_imputed_hrc1.1_rsq0.5_maf0.005_chr$PBS_ARRAYID
+
+# filter HRC imputed files maf < 0.005
+plink --bfile  tcga_imputed_hrc1.1_rsq0.5_chr$PBS_ARRAYID 
+	--maf 0.005 
+	--make-bed --out tcga_imputed_hrc1.1_rsq0.5_maf0.005_chr$PBS_ARRAYID

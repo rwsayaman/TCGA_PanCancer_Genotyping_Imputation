@@ -12,5 +12,6 @@
 # Run my job
 cd  /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Data/HRC_Imputed_Genotyping_Data
 
+# unzip HRC imputed files
 unzip -P 55PlfZ=rENaogE chr_$PBS_ARRAYID.zip
 

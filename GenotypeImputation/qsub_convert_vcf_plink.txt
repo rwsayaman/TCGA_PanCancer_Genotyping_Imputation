@@ -12,5 +12,8 @@
 # Run my job
 cd  /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Data/HRC_Imputed_Genotyping_Data
 
-module load CBC plink/1.90b5.
-plink --double-id --vcf chr$PBS_ARRAYID\.rsq0.5.dose.vcf.gz  --make-bed --out tcga_imputed_hrc1.1_rsq0.5_chr$PBS_ARRAYID
+module load CBC plink/1.90b5.2
+
+# convert vcf files to plink bed files
+plink --double-id --vcf chr$PBS_ARRAYID\.rsq0.5.dose.vcf.gz  
+	--make-bed --out tcga_imputed_hrc1.1_rsq0.5_chr$PBS_ARRAYID

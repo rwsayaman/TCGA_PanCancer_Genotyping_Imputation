@@ -12,6 +12,7 @@
 # Run my job
 cd  /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Data/HRC_Imputed_Genotyping_Data
 
-python ../../Code/PreProcess_HRCImputed/Format_Impute_HRC_Info_chr$PBS_ARRAYID.py
+# format and filter HRC imputed info files for R2>=0.5
+python ../../Code/GenotypeImputation/Format_Impute_HRC_Info_chr$PBS_ARRAYID.py
 
 

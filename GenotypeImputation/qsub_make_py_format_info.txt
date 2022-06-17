@@ -11,6 +11,7 @@
 # Run my job
 cd  /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Code/GenotypeImputation
 
+# create Format_Impute_HRC_Info_chr*.py files for each chr
 for ((i=2;i<=22;i++))
 do
 sed 's/chr1/chr'$i'/g' Format_Impute_HRC_Info_chr1.py > Format_Impute_HRC_Info_chr$i.py
