@@ -1,0 +1,16 @@
+#!/bin/sh 
+# By Rosalyn Sayaman, Ziv Group, UCSF
+#
+#PBS -e /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Code/GenotypeImputation/log_report
+#PBS -o /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Code/GenotypeImputation/log_report
+
+## Set the job name
+#PBS -N qsub_unzip_HRC_chr
+#PBS -l vmem=128gb
+#PBS -t 1-22
+
+# Run my job
+cd  /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Data/HRC_Imputed_Genotyping_Data
+
+unzip -P 55PlfZ=rENaogE chr_$PBS_ARRAYID.zip
+
