@@ -16,7 +16,7 @@ module load CBC plink/1.90b5.2
 
 
 ##separate files into sep chr
-for ((i=1; i<=22; i++)); do plink --bfile ../QC_Unimputed_Genotyping_Data/TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_hardy_maf0_005_uniqueSNP_rmPalindromic_HRCstrand --chr $i --make-bed --out TCGA.genotyping.ZivLab.whitelist.10128.unimputed_clean.rmPalindromic.HRC_chr$i ; done
+for ((i=1; i<=22; i++)); do plink --bfile TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_hardy_maf0_005_uniqueSNP_rmPalindromic_HRCstrand --chr $i --make-bed --out TCGA.genotyping.ZivLab.whitelist.10128.unimputed_clean.rmPalindromic.HRC_chr$i ; done
 
 for ((i=1; i<=22; i++)); do plink --bfile TCGA.genotyping.ZivLab.whitelist.10128.unimputed_clean.rmPalindromic.HRC_chr$i --recode vcf --out TCGAGenotyping_ZivLabWhitelist10128_clean.rmPalindromic.HRC_chr$i ; done
 
