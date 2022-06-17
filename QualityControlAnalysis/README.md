@@ -107,6 +107,8 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#check_sex.
 	a.	Filter variants (--geno) to include only SNPs with 95% genotyping rate (5% missing).
 
 	b.	Filter samples (--mind) to exclude individuals with more than 5% missing genotypes.
+	
+	* **Run code:** "qsub_plink_whitelist_geno_mind.txt"
 
 7.	Calculate heterozygosity within each ancestry cluster, and filter samples with excess heterozygosity.
 https://www.cog-genomics.org/plink/1.9/basic_stats#ibc
@@ -125,7 +127,7 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#ibc
 
 **Note:** Not all TCGA samples have self-reported race and ethnicity data. Initial ancestry cluster assignments can be calculated based on Principal Component Analysis (PCA) of germline data (--pca). In (Sayaman et al., 2021) initial ancestry calls were made based on Partition Around Medoids (PAM) clustering with k=4 using the first 3 principal components as described in (Sayaman et al., 2021), (Carrot-Zhang et al., 2020).
  
- 	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto.txt"
+ 	* **Run code:** "qsub_plink_whitelist_geno_mind_pca.txt"
 
  8.	Select a representative sample for each individual with more than one sample. Conduct final filtering steps for all autosomal SNPs across the set of unique individuals.
 	
