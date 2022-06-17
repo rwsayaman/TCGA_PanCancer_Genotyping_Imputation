@@ -51,9 +51,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 	b.	Each unzipped folder contains 3 files: 
 	
 	* i.	.dose.vcf.gz - imputed genotypes with dosage information
-	
 	* ii.	.dose.vcf.gz.tbi - index file of the .vcf.gz file
-	
 	* iii.	 .info.gz file - information for each variant including quality and frequency (For Minimac3 info file, see: https://genome.sph.umich.edu/wiki/Minimac3_Info_File)
 
 3.	Filter to exclude SNPs with imputation R2 < 0.5 using bcftools. The imputation R2 is the estimated value of the squared correlation between imputed genotypes and true, unobserved genotypes. See Figure 2b from (Chambwe, Sayaman et al., 2022). 
@@ -65,14 +63,14 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 	b.	Generate new filtered "chr*.info.rsq0.5.gz" files
 	
 	* **Run code:** "qsub_make_py_format_info.txt" which requires the "Format_Impute_HRC_Info_chr1.py" template file 
-	
-	* **Run code:** "qsub_py_format_info.txt" which runs "Format_Impute_HRC_Info_chr*.py" files
+	* **Run code:** "qsub_py_format_info.txt" which runs the generated "Format_Impute_HRC_Info_chr*.py" files
 
 4.	Convert VCF files to PLINK files. Filter to exclude SNPs with MAF < 0.005. See Figure 2b from (Chambwe, Sayaman et al., 2022).
 
 	a.	Convert VCF "chr*.rsq0.5.dose.vcf.gz" files to PLINK "tcga_imputed_hrc1.1_rsq0.5_chr*.bed" files
 	
 	* **Run code:** "qsub_convert_vcf_plink.txt"
+	* **Run code:** "qsub_plink_update_ids.txt" which generates plink files with an updated fam file with TCGA IDs
 
 	b.	Filter out SNPs (--maf) with MAF < 0.005 in PLINK
 
