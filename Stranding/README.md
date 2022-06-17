@@ -30,11 +30,11 @@ This section describes the stranding of the QC’ed genotyping data to the Haplo
 ## Workflow
 **Timing: Approximately <1 day. Dependent on server capabilities.**
 
-1.	Prior to stranding, identify and remove all palindromic SNPs (A/T or G/C).
+12.	Prior to stranding, identify and remove all palindromic SNPs (A/T or G/C).
 
 	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto_hardy.nonriskSNP_maf_uniqueSNP_rmPalindromic.txt"
 
-2.	Perform stranding to the Haplotype Reference Consortium using the McCarthy Group tools. (https://www.well.ox.ac.uk/~wrayner/tools/; see section “HRC or 1000G Imputation preparation and checking”)
+13.	Perform stranding to the Haplotype Reference Consortium using the McCarthy Group tools. (https://www.well.ox.ac.uk/~wrayner/tools/; see section “HRC or 1000G Imputation preparation and checking”)
 
 	a.	Download and unzip the tab delimited HRC reference file (currently v1.1 HRC.r1-1.GRCh37.wgs.mac5.sites.tab) from the Haplotype Reference Consortium (http://www.haplotype-reference-consortium.org/site)
 
