@@ -15,5 +15,7 @@ cd  /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Data/HRC_
 module load CBC plink/1.90b5.2
 
 # Extract non-Palindromic SNPs
-plink --bfile ../QC_Unimputed_Genotyping_Data/TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_hardy_maf0_005_uniqueSNP --extract TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_hardy_maf0_005_uniqueSNP_rmPalindromicSNP.txt --make-bed --out TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_hardy_maf0_005_uniqueSNP_rmPalindromic
+plink --bfile ../QC_Unimputed_Genotyping_Data/TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_hardy_maf0_005_uniqueSNP 
+	--extract TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_hardy_maf0_005_uniqueSNP_rmPalindromicSNP.txt 
+	--make-bed --out TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_hardy_maf0_005_uniqueSNP_rmPalindromic
 
