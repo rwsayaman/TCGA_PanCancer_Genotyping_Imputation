@@ -68,7 +68,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 	
 	* **Run code:** "qsub_py_format_info.txt" which runs "Format_Impute_HRC_Info_chr*.py" files
 
-4.	Convert VCF files to PLINK files. Filter to exclude SNPs with MAF < 0.005, see Figure 2b.
+4.	Convert VCF files to PLINK files. Filter to exclude SNPs with MAF < 0.005 (see Chambwe, Sayaman et al., Figure 2b).
 
 	a.	Convert VCF "chr*.rsq0.5.dose.vcf.gz" files to PLINK "tcga_imputed_hrc1.1_rsq0.5_chr*.bed" files
 	
