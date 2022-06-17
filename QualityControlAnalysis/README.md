@@ -41,7 +41,6 @@ Review other resources for suitable QC steps based on the study design (Anderson
 	a.	Cross-reference sample set with whitelisted germline samples from GDC PanCanAtlas Publications page (https://gdc.cancer.gov/about-data/publications/pancanatlas). Non-whitelisted samples have since been flagged for withdrawal in the various TCGA projects.
 
 	* i.	Download the Merged Sample Quality Annotations file (merged_sample_quality_annotations.tsv).
-
 	* ii.	To select whitelisted samples, filter for samples with “platform” column set to  “Genome_Wide_SNP_6” and the “Do not use”’ column set to “FALSE”.
 
 	b.	Based on established TCGA barcode identifiers, ensure all whitelisted samples have Analyte code “D” (DNA). Exclude samples with other Analyte codes.
@@ -56,22 +55,19 @@ Review other resources for suitable QC steps based on the study design (Anderson
 http://tools.thermofisher.com/content/sfs/brochures/genome_wide_snp6_sample_dataset_readme.pdf).
 
 	* i.	Composite Element REF: the probeset ID
-
 	* ii.	Call: the genotype call with values of {-1, 0, 1, 2} corresponding to {NoCall, AA, AB, BB}
-
 	* iii.	Confidence: the call confidence with values ranging from [0,1] with lower values corresponding to greater confidence
 
 	c.	Pre-filter to exclude SNPs with lower call confidence and set the “Call” value to NA for SNPs with “Confidence” > 0.1 prior to concatenation.
 
 	d.	Iteratively concatenate each call column, generating a table with SNPs as rows, samples as columns, and call values as elements.
 
-	i.	Check that probeset IDs match prior to concatenating a genotyping call; if not, exclude and log the mismatched birdseed file.
+	* i.	Check that probeset IDs match prior to concatenating a genotyping call; if not, exclude and log the mismatched birdseed file.
 
 	e.	Using a custom script, convert batch concatenated birdseed files into PLINK standard input transposed text format files.
 
 	* i.	Using the Affymetrix SNP Array 6.0 (release 35) annotation file, convert concatenated data into PLINK transposed text genotype tables (.tped) with allele calls (See .tped file format specification:
 https://www.cog-genomics.org/plink2/formats#tped).
-	
 	* ii.	Create corresponding PLINK sample information files (.tfam) (See .tfam file format specification:
  https://www.cog-genomics.org/plink2/formats#tfam).
 
@@ -96,7 +92,6 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#check_sex.
 	d.	Plot a histogram of the XHE F coefficients (F coeff). See Figure 1a from (Chambwe, Sayaman et al., 2022).
 	
 	* i.	A very tight distribution of F coeff around 1 is expected for males, and a more spread distribution of F coeff centered around zero is expected for females. 
-	
 	* ii.	In PLINK, F estimates < 0.2 are by default assigned female and F estimates > 0.8 assigned male. However, when (i) is observed and there is a clear gap between the two distributions, F coeff thresholds can be loosened and adjusted to correspond to the empirical gap. See --check-sex implementation and notes on TCGA sex assignment below.
 	
 	e.	Impute sex (--impute-sex) based on the XHE F coefficient.
@@ -144,21 +139,30 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#hardy
 	b.	Plot the -log10 HWE p-value distribution for QC. See Figure 1c from (Chambwe, Sayaman et al., 2022).
 
 	c.	Exclude SNPs (--exclude) that deviate from the expectation under HWE (p < 1x10-6) within the EUR ancestry cluster with the exception of SNPs previously associated with any cancer as reported in the GWAS catalog (p < 5x10-8)(Rashkin et al., 2020) since they may deviate from HWE in cancer patients. 
+	
+	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto_hardy.nonriskSNP"
 
 10.	Calculate Minor allele frequency (MAF) and exclude SNPs with MAF less than 0.5%. 
 https://www.cog-genomics.org/plink/1.9/filter#maf
 
 	a.	Calculate SNP MAFs (--freq).
+	
+	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto_hardy.nonriskSNP_freq.txt"
 
 	b.	Plot the MAF cumulative distribution and histogram of -log10 MAF for QC. See Figure 1d from (Chambwe, Sayaman et al., 2022).
 
 	c.	Filter out SNPs (--maf) with MAF < 0.005. 
+	
+	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto_hardy.nonriskSNP_maf.txt"
 
 11.	Remove duplicate SNPs with identical genomic first position.
 
 	a.	Using custom script, find SNPs with duplicate genomic first positions in the .bim file or alternatively identify SNPs sharing the same bp coordinate and allele codes in PLINK (--list-duplicate-vars). 
 
 	b.	Filter out duplicate SNPs (--exclude).
+	
+	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto_hardy.nonriskSNP_maf_uniqueSNP.txt" which runs "findDuplicatesInBIM.pl" and removes the identified duplicate SNPs
+
 
 **Note:**  The final QC’d list of samples (.fam) and SNP (.bim) files are available as part of the “Quality-controlled unimputed genotyping data plink files - QC_Unimputed_plink.zip” file under the “QC Unimputed Genotyping Data” sub-section of “TCGA QC HRC Imputed Genotyping Data used by the AIM AWG (from Sayaman et al.)” section of the “Supplemental Data Files”: 
 https://gdc.cancer.gov/about-data/publications/CCG-AIM-2020
