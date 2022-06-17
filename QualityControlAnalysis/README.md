@@ -93,7 +93,7 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#check_sex.
 	
 	c.	Run check sex (--check-sex) which compares reported sex assignments with those imputed from X chromosome F coefficients.
 	
-	d.	Plot a histogram of the XHE F coefficients (F coeff). See Figure 1a.
+	d.	Plot a histogram of the XHE F coefficients (F coeff). See Figure 1a from (Chambwe, Sayaman et al., 2022).
 	
 	* i.	A very tight distribution of F coeff around 1 is expected for males, and a more spread distribution of F coeff centered around zero is expected for females. 
 	
@@ -120,7 +120,7 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#ibc
 
 	b.	Calculate heterozygosity means and standard deviations in each ancestry cluster.
 
-	c.	Plot the log10 proportion of missing genotypes against heterozygosity rates with mean +/-3*SD for each ancestry cluster for QC. See Figure 1b. 
+	c.	Plot the log10 proportion of missing genotypes against heterozygosity rates with mean +/-3*SD for each ancestry cluster for QC. See Figure 1b from (Chambwe, Sayaman et al., 2022).
 
 	d.	Remove samples (--remove) with heterozygosity >3*SD above the mean for each ancestry cluster. 
 
@@ -136,12 +136,12 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#ibc
 
 **Note:** All individuals and selected representative sample aliquots from TCGA germline data are listed in Table S1 from (Sayaman et al., 2021).
 
-9.	Calculate Hardy-Weinberg Equilibrium (HWE) within the largest ancestry cluster (EUR      ancestry cluster). 
+9.	Calculate Hardy-Weinberg Equilibrium (HWE) within the largest ancestry cluster (EUR ancestry cluster). 
 https://www.cog-genomics.org/plink/1.9/basic_stats#hardy
 
 	a.	Calculate HWE (--hardy) across autosomal chromosomes.
 
-	b.	Plot the -log10 HWE p-value distribution for QC. See Figure 1c.
+	b.	Plot the -log10 HWE p-value distribution for QC. See Figure 1c from (Chambwe, Sayaman et al., 2022).
 
 	c.	Exclude SNPs (--exclude) that deviate from the expectation under HWE (p < 1x10-6) within the EUR ancestry cluster with the exception of SNPs previously associated with any cancer as reported in the GWAS catalog (p < 5x10-8)(Rashkin et al., 2020) since they may deviate from HWE in cancer patients. 
 
@@ -150,7 +150,7 @@ https://www.cog-genomics.org/plink/1.9/filter#maf
 
 	a.	Calculate SNP MAFs (--freq).
 
-	b.	Plot the MAF cumulative distribution and histogram of -log10 MAF for QC. See Figure 1d.
+	b.	Plot the MAF cumulative distribution and histogram of -log10 MAF for QC. See Figure 1d from (Chambwe, Sayaman et al., 2022).
 
 	c.	Filter out SNPs (--maf) with MAF < 0.005. 
 
