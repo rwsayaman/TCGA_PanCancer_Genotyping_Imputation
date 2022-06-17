@@ -32,4 +32,4 @@ This protocol was developed in PLINK 1.9 beta: (https://www.cog-genomics.org/pli
 
 2.	Install bcftools software (version 1.9 or current version) (Danecek et al., 2021) (https://samtools.github.io/bcftools/).
 
-3. Install R programming software (https://www.r-project.org/)
+3. Install R programming software (https://www.r-project.org/).
