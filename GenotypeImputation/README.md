@@ -30,7 +30,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 ## Workflow
 **Timing: Approximately 1 week. Dependent on imputation server availability.**
 
-14. 	Perform phasing and imputation using the Haplotype Reference Consortium (HRC) (Loh et al., 2016b; McCarthy et al., 2016)). 
+14.	Perform phasing and imputation using the Haplotype Reference Consortium (HRC) (Loh et al., 2016b; McCarthy et al., 2016)). 
   
   	a. 	To reduce the run time, divide the VCF file into 22 files corresponding to individual autosomal chromosomes. 
 	
