@@ -33,6 +33,8 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 1. 	Perform phasing and imputation using the Haplotype Reference Consortium (HRC) (Loh et al., 2016b; McCarthy et al., 2016)). 
   
   	a. 	To reduce the run time, divide the VCF file into 22 files corresponding to individual autosomal chromosomes. 
+	
+	* **Run code:** "qsub_plink_clean.rmPalindromic.HRC_vcfrecode.txt"
   	
   	b. 	Conduct phasing and imputation using a standard pipeline on the Michigan Imputation Server (MIS). 
   	
