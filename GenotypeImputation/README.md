@@ -30,7 +30,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 ## Workflow
 **Timing: Approximately 1 week. Dependent on imputation server availability.**
 
-1. 	Perform phasing and imputation using the Haplotype Reference Consortium (HRC) (Loh et al., 2016b; McCarthy et al., 2016)). 
+14. 	Perform phasing and imputation using the Haplotype Reference Consortium (HRC) (Loh et al., 2016b; McCarthy et al., 2016)). 
   
   	a. 	To reduce the run time, divide the VCF file into 22 files corresponding to individual autosomal chromosomes. 
 	
@@ -42,7 +42,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 
 	d.	Run Minimac3 (Das et al., 2016) for imputation. For each of the 22 VCF files, the MIS breaks the dataset into non-overlapping chunks prior to imputation. For HRC imputation, select the HRC reference panel (version r1.1.2016) using mixed population for QC.
 	
-2.	Download the HRC imputed germline files for each chromosome (“chr*.zip) from the MIS.
+15.	Download the HRC imputed germline files for each chromosome (“chr*.zip) from the MIS.
 
 	a.	Unzip each file using the provided password 
 	
@@ -54,7 +54,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 	* ii.	.dose.vcf.gz.tbi - index file of the .vcf.gz file
 	* iii.	 .info.gz file - information for each variant including quality and frequency (For Minimac3 info file, see: https://genome.sph.umich.edu/wiki/Minimac3_Info_File)
 
-3.	Filter to exclude SNPs with imputation R2 < 0.5 using bcftools. The imputation R2 is the estimated value of the squared correlation between imputed genotypes and true, unobserved genotypes. See Figure 2b from (Chambwe, Sayaman et al., 2022). 
+16.	Filter to exclude SNPs with imputation R2 < 0.5 using bcftools. The imputation R2 is the estimated value of the squared correlation between imputed genotypes and true, unobserved genotypes. See Figure 2b from (Chambwe, Sayaman et al., 2022). 
 
 	a.	Filter "chr*.dose.vcf.gz" files for R2 ≥ 0.5 and index. Generate filtered "chr*.rsq0.5.dose.vcf.gz" and "chr*.rsq0.5.dose.vcf.gz.tbi" files
 	
@@ -65,7 +65,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 	* **Run code:** "qsub_make_py_format_info.txt" which requires the "Format_Impute_HRC_Info_chr1.py" template file 
 	* **Run code:** "qsub_py_format_info.txt" which runs the generated "Format_Impute_HRC_Info_chr*.py" files
 
-4.	Convert VCF files to PLINK files. Filter to exclude SNPs with MAF < 0.005. See Figure 2b from (Chambwe, Sayaman et al., 2022).
+17.	Convert VCF files to PLINK files. Filter to exclude SNPs with MAF < 0.005. See Figure 2b from (Chambwe, Sayaman et al., 2022).
 
 	a.	Convert VCF "chr*.rsq0.5.dose.vcf.gz" files to PLINK "tcga_imputed_hrc1.1_rsq0.5_chr*.bed" files
 	
@@ -84,7 +84,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 
 *Good Quality TCGA Germline Imputation Calls*
 
-If this protocol is carried out as described here, you can expect to identify a total of 838,948 autosomal chromosome variants for 10,128 unique individuals that pass the QC filters. After removal of palindromic SNPs and stranding to the HRC panel 680,389 correctly matched variants remain. These are submitted to the MIS which returns 39,127,678 SNPs for 10,128 unique individuals (Figure 2a). Subsequent quality control analysis and filtering based on imputation quality (R2 ≥ 0.5) and  minor allele frequency (MAF ≥ 0.005) thresholds yields 10,955,441 SNPs, see Figure 2a, 2b from (Chambwe, Sayaman et al., 2022).
+If this protocol is carried out as described here, you can expect to identify a total of 838,948 autosomal chromosome variants for 10,128 unique individuals that pass the QC filters. After removal of palindromic SNPs and stranding to the HRC panel 680,389 correctly matched variants remain. These are submitted to the MIS which returns 39,127,678 SNPs for 10,128 unique individuals, see Figure 2a from (Chambwe, Sayaman et al., 2022). Subsequent quality control analysis and filtering based on imputation quality (R2 ≥ 0.5) and  minor allele frequency (MAF ≥ 0.005) thresholds yields 10,955,441 SNPs, see Figure 2a, 2b from (Chambwe, Sayaman et al., 2022).
 
 
 ## Troubleshooting
