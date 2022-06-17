@@ -70,7 +70,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 	a.	Convert VCF "chr*.rsq0.5.dose.vcf.gz" files to PLINK "tcga_imputed_hrc1.1_rsq0.5_chr*.bed" files
 	
 	* **Run code:** "qsub_convert_vcf_plink.txt"
-	* **Run code:** "qsub_plink_update_ids.txt" which generates plink files with an updated fam file with TCGA IDs
+	* **Run code:** "qsub_plink_update_ids.txt" which generates updated PLINK fam files with TCGA IDs
 
 	b.	Filter out SNPs (--maf) with MAF < 0.005 in PLINK
 
