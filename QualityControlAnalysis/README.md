@@ -120,7 +120,7 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#check_sex.
 	
 	* **Run code:** "qsub_plink_whitelist_imiss_het.txt"
 
-	b.	Using downloaded ancestry assignments, calculate heterozygosity means and standard deviations within each of the European (EUR), African (AFR),  East Asian (EAS) and Admixed American (AMR) ancestry clusters.
+	b.	Using downloaded UCSF ancestry assignments, calculate heterozygosity means and standard deviations within each of the European (EUR), African (AFR),  East Asian (EAS) and Admixed American (AMR) ancestry clusters.
 	
 	c.	Plot the log10 proportion of missing genotypes against heterozygosity rates with mean +/-3xSD for each ancestry cluster for QC. See Figure 1b from (Chambwe, Sayaman et al., 2022).
 	
