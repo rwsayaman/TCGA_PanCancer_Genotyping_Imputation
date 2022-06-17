@@ -125,16 +125,20 @@ https://www.cog-genomics.org/plink/1.9/basic_stats#ibc
 
 8.	Select a representative sample for each individual with replicate samples. Conduct final filtering steps for all autosomal SNPs across the set of unique individuals.
 
-	a.	Restrict to autosomal chromosomes by excluding all unplaced and non-autosomal (--autosomes).
+	a.	Restrict to autosomal chromosomes by excluding all unplaced and non-autosomal (--autosome).
 
 	b.	Preferentially select blood-derived normal samples; for those with more than one blood-derived sample, retain the samples with higher call rates (--keep).
+	
+	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto.txt"
 
 **Note:** All individuals and selected representative sample aliquots from TCGA germline data are listed in Table S1 from (Sayaman et al., 2021).
 
 9.	Calculate Hardy-Weinberg Equilibrium (HWE) within the largest ancestry cluster (EUR ancestry cluster). 
 https://www.cog-genomics.org/plink/1.9/basic_stats#hardy
 
-	a.	Calculate HWE (--hardy) across autosomal chromosomes.
+	a.	Subset for samples in EUR ancestry cluster. Calculate HWE (--hardy) across autosomal chromosomes.
+	
+	* **Run code:** "qsub_plink_whitelist_geno_mind_unique.indv_chr.auto_EUR.Ancestry.Cluster_hardy.txt"
 
 	b.	Plot the -log10 HWE p-value distribution for QC. See Figure 1c from (Chambwe, Sayaman et al., 2022).
 
