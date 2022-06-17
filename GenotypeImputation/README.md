@@ -22,7 +22,7 @@ Please additionally cite: Carrot-Zhang et al., Cancer Cell 2020 when referencing
 ## Contents
 **Genotype Imputation**
 
-This section describes generation of Haplotype Reference Consortium (HRC) imputed genotyping files from the stranded and QC’ed data, see Figure 2a from (Chambwe, Sayaman et al., 2022).
+This section describes generation of Haplotype Reference Consortium (HRC) imputed genotyping files from the stranded and QC’ed data. See Figure 2a from (Chambwe, Sayaman et al., 2022).
 
 **Note:**  To skip this step, download the controlled access “HRC Imputed Genotyping Data” generated from  (Sayaman et al., 2021) as described in Step 8 of the “Prepare Germline Genetic Variation Dataset” section of this protocol OR proceed with phasing and imputation protocol steps provided below. 
 
@@ -56,7 +56,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 	
 	* iii.	 .info.gz file - information for each variant including quality and frequency (For Minimac3 info file, see: https://genome.sph.umich.edu/wiki/Minimac3_Info_File)
 
-3.	Filter to exclude SNPs with imputation R2 < 0.5 using bcftools, see Figure 2b from (Chambwe, Sayaman et al., 2022). The imputation R2 is the estimated value of the squared correlation between imputed genotypes and true, unobserved genotypes.
+3.	Filter to exclude SNPs with imputation R2 < 0.5 using bcftools. The imputation R2 is the estimated value of the squared correlation between imputed genotypes and true, unobserved genotypes. See Figure 2b from (Chambwe, Sayaman et al., 2022). 
 
 	a.	Filter "chr*.dose.vcf.gz" files for R2 ≥ 0.5 and index. Generate filtered "chr*.rsq0.5.dose.vcf.gz" and "chr*.rsq0.5.dose.vcf.gz.tbi" files
 	
@@ -68,7 +68,7 @@ This section describes generation of Haplotype Reference Consortium (HRC) impute
 	
 	* **Run code:** "qsub_py_format_info.txt" which runs "Format_Impute_HRC_Info_chr*.py" files
 
-4.	Convert VCF files to PLINK files. Filter to exclude SNPs with MAF < 0.005, see Figure 2b from (Chambwe, Sayaman et al., 2022).
+4.	Convert VCF files to PLINK files. Filter to exclude SNPs with MAF < 0.005. See Figure 2b from (Chambwe, Sayaman et al., 2022).
 
 	a.	Convert VCF "chr*.rsq0.5.dose.vcf.gz" files to PLINK "tcga_imputed_hrc1.1_rsq0.5_chr*.bed" files
 	
