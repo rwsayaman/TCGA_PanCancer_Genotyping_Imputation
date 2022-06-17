@@ -1,0 +1,27 @@
+#!/bin/sh 
+# By Rosalyn Sayaman, Ziv Group, UCSF
+#
+#PBS -e /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Code/QualityControlAnalysis/log_report
+#PBS -o /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Code/QualityControlAnalysis/log_report
+
+## Set the job name
+#PBS -N qsub_plink_whitelist_geno_mind_unique.indv_chr.auto_EUR.Ancestry.Cluster_hardy
+#PBS -l vmem=64gb
+#PBS -t 1
+
+# Run my job
+cd  /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Data/QC_Unimputed_Genotyping_Data
+
+module load CBC plink/1.90b5.2
+# whitelist
+
+# keep only subset of unique indv for designated PAM Ancestry Cluster1: EUR
+plink --bfile TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto 
+	--keep eigenvec_ZivLab.whitelist.10128.pca.anno.qc.unique.indv.Cluster1.8337.txt 
+	--make-bed --out TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_pam.ancestry.Cluster1
+
+# HW on EUR Ancestry Cluster
+plink --bfile TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_pam.ancestry.Cluster1 
+	--hardy gz --out TCGA.all.normal.merge_ZivLab.whitelist.10128_plink_splitx_imputesex_geno0_05_mind0_05_chr.auto_pam.ancestry.Cluster1_hardy
+
+

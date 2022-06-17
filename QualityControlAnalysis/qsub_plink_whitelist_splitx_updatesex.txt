@@ -1,0 +1,20 @@
+#!/bin/sh 
+# By Rosalyn Sayaman, Ziv Group, UCSF
+#
+#PBS -e /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Code/QualityControlAnalysis/log_report
+#PBS -o /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Code/QualityControlAnalysis/log_report
+
+## Set the job name
+#PBS -N qsub_plink_whitelist_splitx_updatesex
+#PBS -l vmem=16gb
+#PBS -t 1
+
+# Run my job
+cd  /zivlab/data3/rsayaman/GitHub/TCGA_PanCancer_Genotyping_Imputation/Data/QC_Unimputed_Genotyping_Data
+
+module load CBC plink/1.90b5.2
+
+# update sex using curated imputed sex information
+plink --bfile TCGA.all.normal.merge_ZivLab.whitelist.10946_plink_splitx_imputesex_raw
+	--update-sex gdc.genotyping.Analyte.Synapse.TCGA.PC.ZivLab.whitelist.10946_sexFile_imputesex.txt 
+	--make-bed --out TCGA.all.normal.merge_ZivLab.whitelist.10946_plink_splitx_imputesex
